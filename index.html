@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Psychic Game</title>
+  </head>
+
+
+   <body>
+    <div id=game>
+     <h1>The Psychic Game</h1>
+     <p>Guess what letter I'm thinking of</p>
+    </div>
+   
+        <script type="text/javascript">
+           var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+           var Wins = 0;
+           var Losses = 0;
+           
+           document.onkeyup = function(event) {
+               var userGuess =event.key;
+
+               var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+               if (userGuess === computerGuess) {
+                   Wins++;
+               } 
+           
+           
+
+           var html =
+                "<p>Wins: " + Wins + "</p>" +
+                "<p>Losses: " + Losses + "</p>" ;
+                
+
+          
+
+            document.querySelector("#game").innerHTML = html;
+          };
+        </script>
+    
+
+  </body>
+</html>
