@@ -24,14 +24,21 @@
            document.onkeyup = function(event) {
 
                guessesLeft--;
+              
 
-               var userGuess =event.key;
-
+               
+               var userGuess = event.key;
+               
                var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
                if (userGuess === computerGuess) {
                    Wins++;
                } 
-           
+               else if (guessesLeft == 0){
+                  
+                        alert('You lost');
+                        guessesLeft = 9;
+                        Losses++;
+        }
            
 
            var html =
@@ -41,6 +48,8 @@
                 "<p>Guesses Left: "+ guessesLeft + "</p>";
                 
 
+            
+
                 
 
           
@@ -48,7 +57,7 @@
             document.querySelector("#game").innerHTML = html;
           };
         </script>
-    wwwwwww
+    
 
   </body>
 </html>
