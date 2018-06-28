@@ -17,26 +17,31 @@
            var Wins = 0;
            var Losses = 0;
            var guessesLeft =10;
-           var userGuess =[];
+           var guessedLetters =[];
            //userGuess array i++ something like that 
            
            
            document.onkeyup = function(event) {
 
-               guessesLeft--;
-              
-
                
-               var userGuess = event.key;
+              
+               guessesLeft--;
+               
+               var userGuess = event.key.toLowerCase();
+               guessedLetters.push(userGuess);
                
                var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+               if (computerChoices.indexOf(userGuess) <=-1){
+                 alert("That's not a letter!");
+               }
                if (userGuess === computerGuess) {
                    Wins++;
                } 
-               else if (guessesLeft == 0){
+               if (guessesLeft == 0){
                   
                         alert('You lost');
-                        guessesLeft = 9;
+                        guessesLeft = 10;
                         Losses++;
         }
            
@@ -44,12 +49,12 @@
            var html =
                 "<p>Wins: " + Wins + "</p>" +
                 "<p>Losses: " + Losses + "</p>"+
-                "<p>Your Guesses: " + userGuess + "</p>"+
+                "<p>Your Guesses: "  + guessedLetters.join(', ')+  "</p>"+
                 "<p>Guesses Left: "+ guessesLeft + "</p>";
                 
 
             
-
+            
                 
 
           
